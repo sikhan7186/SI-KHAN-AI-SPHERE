@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX'); // এখানে আপনার আসল আইডি বসাবেন
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI Khan AI Sphere - Elite AI Directory</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { background-color: #0b0f19; color: #f3f4f6; }
+        .mesh-gradient {
+            background: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+        }
+        .aix-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .aix-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans mesh-gradient">
+
+    <header class="bg-slate-950/60 backdrop-blur-md border-b border-white/5 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="text-xl font-black tracking-wider bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+            ✨ SI KHAN AI SPHERE
+        </div>
+        <div class="text-xs text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full font-mono">
+            Verified 100 AI Tools Database
+        </div>
+    </header>
+
+    <section class="text-center py-16 px-4 max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent tracking-tight">
+            ১০০টি শীর্ষস্থানীয় এআই ডিরেক্টরি
+        </h1>
+        <p class="text-sm md:text-base text-slate-400 max-w-xl mx-auto font-light mb-8">
+            ক্যাটাগরি বা দামের ওপর ভিত্তি করে এক ক্লিকে ফ্রি এবং পেইড টুলগুলো আলাদা করে দেখুন।
+        </p>
+
+        <div class="max-w-xl mx-auto mb-6 relative">
+            <input type="text" id="searchInput" oninput="filterTools()" placeholder="টুলের নাম বা কাজ লিখুন (e.g. Gemini, chat gpt)..." class="w-full bg-slate-900/90 border border-white/10 rounded-2xl py-3.5 px-5 pl-12 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 shadow-inner transition">
+            <span class="absolute left-4 top-4 text-slate-500">🔍</span>
+        </div>
+
+        <div class="flex justify-center gap-3 mb-6 pb-4 border-b border-white/5 max-w-md mx-auto">
+            <button onclick="filterPricing('All')" class="pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-indigo-500/30 bg-indigo-600 text-white transition shadow-md">সব টুলস</button>
+            <button onclick="filterPricing('Free')" class="pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-emerald-500/20 bg-slate-900 text-emerald-400 hover:bg-emerald-500/10 transition">🎁 শুধু ফ্রি (Free)</button>
+            <button onclick="filterPricing('Premium')" class="pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-amber-500/20 bg-slate-900 text-amber-400 hover:bg-amber-500/10 transition">💎 পেইড/ফ্রিমিয়াম</button>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2" id="filterContainer">
+            <button onclick="filterCategory('All')" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-indigo-600 text-white transition shadow-lg shadow-indigo-600/10">All Categories</button>
+            <button onclick="filterCategory('text')" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-slate-900 border border-white/5 text-slate-400 hover:text-white transition">Text & Chat</button>
+            <button onclick="filterCategory('image')" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-slate-900 border border-white/5 text-slate-400 hover:text-white transition">Image & Design</button>
+            <button onclick="filterCategory('code')" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-slate-900 border border-white/5 text-slate-400 hover:text-white transition">Coding</button>
+            <button onclick="filterCategory('audio')" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-slate-900 border border-white/5 text-slate-400 hover:text-white transition">Audio & Music</button>
+            <button onclick="filterCategory('video')" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-slate-900 border border-white/5 text-slate-400 hover:text-white transition">Video & Animation</button>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-6 mb-16">
+        <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+    </main>
+
+    <section class="max-w-xl mx-auto px-6 mb-12">
+        <div class="bg-slate-900/60 backdrop-blur-md border border-white/5 rounded-2xl p-4 flex justify-around items-center text-center shadow-inner">
+            <div>
+                <div class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">🟢 লাইভ কাউন্টার</div>
+                <img src="https://profile-counter.glitch.me/si-khan-ai-sphere/count.svg" alt="Visitor Counter" class="h-6 filter hue-rotate-180 invert-0 mx-auto" />
+            </div>
+            <div class="h-8 w-px bg-white/5"></div>
+            <div>
+                <div class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-0.5">সাইট স্ট্যাটাস</div>
+                <span class="text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full font-medium inline-block mt-1">
+                    ⚡ Active Online
+                </span>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-slate-950/80 backdrop-blur-md border-t border-white/5 py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div class="w-full md:w-auto text-center md:text-left">
+                <div class="text-lg font-black tracking-wider bg-gradient-to-r from-indigo-400 to-pink-500 bg-clip-text text-transparent mb-2">
+                    SI KHAN AI SPHERE
+                </div>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    © 2026 SI Khan. সর্বস্বত্ব সংরক্ষিত। <br>
+                    ১০০টি সেরা এআই টুলের একটি প্রফেশনাল ডাটাবেজ।
+                </p>
+            </div>
+
+            <div class="w-full md:w-auto flex flex-col gap-3 text-xs text-slate-400">
+                <div class="text-xs uppercase tracking-widest text-slate-500 font-bold border-b border-white/5 pb-1 mb-1 text-center md:text-left">যোগাযোগ ও ঠিকানা</div>
+                
+                <div class="flex items-center gap-2 justify-center md:justify-start">
+                    <span>📧</span>
+                    <a href="mailto:imran.imrankhanrana.khan3@gmail.com" class="hover:text-indigo-400 transition font-mono">imran.imrankhanrana.khan3@gmail.com</a>
+                </div>
+
+                <div class="flex items-center gap-2 justify-center md:justify-start">
+                    <span>📞</span>
+                    <span class="font-mono">
+                        <a href="tel:01674119947" class="hover:text-emerald-400 transition">01674119947</a> / 
+                        <a href="tel:01974119947" class="hover:text-emerald-400 transition">01974119947</a>
+                    </span>
+                </div>
+
+                <div class="flex items-start gap-2 justify-center md:justify-start max-w-md text-center md:text-left">
+                    <span class="mt-0.5">📍</span>
+                    <p class="leading-relaxed text-slate-400/90">
+                        Abdul Kader Miajir (Haider) Bari, Ekabbarpur, Chandragonj, Begumgonj, Noakhali.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedCategory = 'All';
+        let selectedPricing = 'All'; 
+        
+        // ১০০টি স্থায়ী এআই টুলের ডাটাবেজ
+        const aiDatabase = [
+            // --- TEXT & CHAT (20 Tools) ---
+            { name: "Gemini", category: "text", pricing: "Freemium", logo: "✨", url: "https://gemini.google.com", description: "গুগলের অফিশিয়াল শক্তিশালী মাল্টিমোডাল এআই। তথ্য খোঁজা ও দ্রুত লজিক্যাল উত্তরের জন্য সেরা।" },
+            { name: "ChatGPT", category: "text", pricing: "Freemium", logo: "💬", url: "https://chatgpt.com", description: "ওপেনএআই-এর তৈরি বিশ্বের সবচেয়ে জনপ্রিয় চ্যাটবট। যেকোনো প্রশ্ন, কন্টেন্ট রাইটিং ও কোডিংয়ে ওস্তাদ।" },
+            { name: "Claude AI", category: "text", pricing: "Freemium", logo: "🧠", url: "https://anthropic.com", description: "অ্যানথ্রোপিক কোম্পানির তৈরি গভীর চিন্তাভাবনা, বড় ফাইল অ্যানালাইসিস এবং নিখুঁত লেখার এআই।" },
+            { name: "Perplexity AI", category: "text", pricing: "Freemium", logo: "🔍", url: "https://perplexity.ai", description: "সরাসরি সোর্স বা রেফারেন্স লিংকসহ যেকোনো জটিল বিষয়ে রিয়েল-টাইম সার্চ করার সেরা এআই ইঞ্জিন।" },
+            { name: "DeepSeek", category: "text", pricing: "Freemium", logo: "🐋", url: "https://deepseek.com", description: "অত্যಂತ শক্তিশালী ও সাশ্রয়ী ওপেন-সোর্স লার্জ ল্যাঙ্গুয়েজ মডেল যা কোডিং ও যুক্তিতে দারুণ পারদর্শী।" },
+            { name: "Copilot", category: "text", pricing: "Free", logo: "🧭", url: "https://copilot.microsoft.com", description: "মাইক্রোসফটের নিজস্ব এআই অ্যাসিস্ট্যান্ট, যা বিং সার্চ এবং ஜিপিটি-৪ এর পাওয়ার একসাথে ব্যবহার করে।" },
+            { name: "Jasper AI", category: "text", pricing: "Paid", logo: "✍️", url: "https://jasper.ai", description: "কপিরাইটার এবং মার্কেটারদের জন্য ব্লগ, ইমেইল এবং সোশ্যাল মিডিয়া পোস্ট লেখার প্রিমিয়াম এআই।" },
+            { name: "Copy.ai", category: "text", pricing: "Freemium", logo: "📝", url: "https://copy.ai", description: "সেলস কন্টেন্ট এবং marketing কন্টেন্ট স্বয়ংক্রিয়ভাবে জেনারেট করার জন্য দারুণ একটি ক্লাউড টুল।" },
+            { name: "Writesonic", category: "text", pricing: "Freemium", logo: "⚡", url: "https://writesonic.com", description: "এসইও ফ্রেন্ডলি আর্টিকেল রাইটিং এবং কন্টেন্ট অপটিমাইজেশনের জন্য জনপ্রিয় একটি এআই।" },
+            { name: "QuillBot", category: "text", pricing: "Freemium", logo: "✒️", url: "https://quillbot.com", description: "যেকোনো ইংরেজি লেখাকে নতুন করে সুন্দরভাবে রিফ্রেজ (Paraphrase) এবং গ্রামার ঠিক করার টুল।" },
+            { name: "Grammarly", category: "text", pricing: "Freemium", logo: "🔤", url: "https://grammarly.com", description: "ইংরেজিতে লেখার সময় বানান, ব্যাকরণ এবং টোন স্বয়ংক্রিয়ভাবে ঠিক করার জনপ্রিয় এআই প্লাগইন।" },
+            { name: "Notion AI", category: "text", pricing: "Paid", logo: "📓", url: "https://notion.so", description: "নোটস নেওয়া, প্রজেক্ট ম্যানেজমেন্ট এবং লেখার গতি বাড়াতে নোশনের ভেতরের ইন-বিল্ট এআই।" },
+            { name: "Character.ai", category: "text", pricing: "Free", logo: "🎭", url: "https://character.ai", description: "বিশ্বের বিভিন্ন বিখ্যাত বাস্তব বা কাল্পনিক চরিত্রের সাথে লাইভ চ্যাট করার বিনোদনমূলক এআই।" },
+            { name: "Pi AI", category: "text", pricing: "Free", logo: "💚", url: "https://pi.ai", description: "ইনফ্লেকশন এআই-এর তৈরি অত্যন্ত মানবিক এবং বন্ধুসুলভ মানসিক সাপোর্ট বা কথোপকথনের চ্যাটবট।" },
+            { name: "HuggingChat", category: "text", pricing: "Free", logo: "🤗", url: "https://huggingface.co/chat", description: "হাগিংফেসের তৈরি সম্পূর্ণ ওপেন সোর্স এবং শতভাগ ফ্রি চ্যাটবট প্ল্যাটফর্ম।" },
+            { name: "Grok", category: "text", pricing: "Paid", logo: "❌", url: "https://x.com", description: "এলন মাস্কের এক্স (টুইটার) প্ল্যাটফর্মের রিয়েল-টাইম ডাটা অ্যাক্সেস সংবলিত সাহসী ও রসাত্মক চ্যাটবট।" },
+            { name: "You.com", category: "text", pricing: "Freemium", logo: "🫵", url: "https://you.com", description: "ডেভেলপার ও গবেষকদের জন্য তৈরি কাস্টমাইজড চ্যাট এবং কোডিং ফোকাসড সার্চ এআই।" },
+            { name: "Chatsonic", category: "text", pricing: "Freemium", logo: "🎙️", url: "https://writesonic.com/chatsonic", description: "গুগল সার্চের লাইভ ডাটা ও ইংরেজি ইংরেজি ইমেজ তৈরির ক্ষমতাসহ চ্যাটজিপিটির একটি দুর্দান্ত বিকল্প।" },
+            { name: "Poe", category: "text", pricing: "Freemium", logo: "🦚", url: "https://poe.com", description: "কোরা (Quora) এর তৈরি একটি অ্যাপে ChatGPT, Claude, Gemini সহ সব বড় এআই ব্যবহারের প্ল্যাটফর্ম।" },
+            { name: "Rytr", category: "text", pricing: "Freemium", logo: "🖊️", url: "https://rytr.me", description: "খুবই সাশ্রয়ী মূল্যে কন্টেন্ট ও চমৎকার ইমেইল লেখার এআই অ্যাসিস্ট্যান্ট।" },
+
+            // --- IMAGE & DESIGN (20 Tools) ---
+            { name: "Midjourney", category: "image", pricing: "Paid", logo: "🎨", url: "https://midjourney.com", description: "টেক্সট থেকে কাল্পনিক এবং আল্ট্রা-রিয়েলিস্টিক আর্ট ও ছবি তৈরির বিশ্বের এক নম্বর এআই।" },
+            { name: "Stable Diffusion", category: "image", pricing: "Free", logo: "🌀", url: "https://stability.ai", description: "ওপেন সোর্স ইমেজ জেনারেশন মডেল যা দিয়ে নিখুঁত ও কাস্টমাইজড ছবি তৈরি করা যায়।" },
+            { name: "DALL-E 3", category: "image", pricing: "Freemium", logo: "🖼️", url: "https://openai.com/dall-e-3", description: "ওপেনএআই-এর ইমেজ জেনারেটর, যা চ্যাটজিপিটি প্লাসের ভেতর নিখুঁতভাবে ছবি এঁকে দেয়।" },
+            { name: "Canva AI", category: "image", pricing: "Freemium", logo: "📐", url: "https://canva.com", description: "ক্যানভার ভেতর ম্যাজিক ডিজাইন, টেক্সট থেকে ইমেজ এবং অবজেক্ট রিমুভ করার এআই কিট।" },
+            { name: "Adobe Firefly", category: "image", pricing: "Freemium", logo: "🔥", url: "https://adobe.com/firefly", description: "অ্যাডোবির অফিশিয়াল কপিরাইট-মুক্ত কমার্শিয়াল এআই ইমেজ জেনারেশন এবং ফটো এডিটিং এআই।" },
+            { name: "Leonardo.ai", category: "image", pricing: "Freemium", logo: "🦁", url: "https://leonardo.ai", description: "গেম অ্যাসেট, ক্যারেক্টার মডেল এবং অসাধারণ থ্রিডি আর্ট জেনারেট করার ফ্রিমিয়াম প্ল্যাটফর্ম।" },
+            { name: "Photoroom", category: "image", pricing: "Freemium", logo: "📸", url: "https://photoroom.com", description: "যেকোনো ছবির ব্যাকগ্রাউন্ড এক ক্লিকে নিখুঁতভাবে রিমুভ করে প্রফেশনাল প্রোডাক্ট ফটো বানানোর টুল।" },
+            { name: "Remini", category: "image", pricing: "Freemium", logo: "✨", url: "https://remini.ai", description: "পুরোনো, ঘোলাটে বা কম রেজোলিউশনের ছবিকে এক ক্লিকে এইচডি (HD) কোয়ালিটি করার মোবাইল ও ওয়েব অ্যাপ।" },
+            { name: "Magnific AI", category: "image", pricing: "Paid", logo: "🔍", url: "https://magnific.ai", description: "ছবির মান ও ডিটেইলিং কল্পনাতীতভাবে বাড়িয়ে সুপার-রেজোলিউশন করার সবচেয়ে দামি এআই।" },
+            { name: "Clipdrop", category: "image", pricing: "Freemium", logo: "✂️", url: "https://clipdrop.co", description: "ছবি থেকে লাইট অ্যাডজাস্টমেন্ট, আনক্রপ এবং অপ্রয়োজনীয় বস্তু মুছে ফেলার এআই এডিটর।" },
+            { name: "Looka", category: "image", pricing: "Paid", logo: "🏢", url: "https://looka.com", description: "আপনার ব্র্যান্ডের নাম দিয়ে মাত্র এক মিনিটে চমৎকার প্রফেশনাল লোগো এবং ব্র্যান্ড কিট বানানোর টুল।" },
+            { name: "VanceAI", category: "image", pricing: "Freemium", logo: "⚡", url: "https://vanceai.com", description: "ছবির নয়েজ কমানো, শার্পনেস বাড়ানো এবং কার্টুন ইমেজে রূপান্তর করার টুল।" },
+            { name: "Craiyon", category: "image", pricing: "Free", logo: "🖍️", url: "https://craiyon.com", description: "সাবেক ডল-ই মিনি, যা দিয়ে সম্পূর্ণ ফ্রিতে আনলিমিটেড মজার ছবি জেনারেট করা যায়।" },
+            { name: "Recraft.ai", category: "image", pricing: "Freemium", logo: "🎨", url: "https://recraft.ai", description: "ডিজাইনারদের জন্য ভেক্টর আর্ট, আইকন ও থ্রিডি গ্রাফিক্স ইলাস্ট্রেশন তৈরি করার সেরা ফ্রিমিয়াম টুল।" },
+            { name: "Gamma App", category: "image", pricing: "Freemium", logo: "📊", url: "https://gamma.app", description: "শুধু টপিক লিখে দিলে স্বয়ংক্রিয়ভাবে অসাধারণ পাওয়ারপয়েন্ট প্রেজেন্টেশন এবং ওয়েবসাইট লেআউট বানায়।" },
+            { name: "ArchitectAI Pro", category: "image", pricing: "Freemium", logo: "📐", url: "https://example.com/architect", description: "আপনার দেওয়া জমির পরিমাপ অনুযায়ী কয়েক সেকেন্ডে স্বয়ংক্রিয় ২D ফ্লোর প্ল্যান তৈরি করার এআই।" },
+            { name: "Khroma", category: "image", pricing: "Free", logo: "🎨", url: "https://khroma.co", description: "ডিজাইনারদের পছন্দের ওপর ভিত্তি করে পারফেক্ট কালার প্যালেট বা কম্বিনেশন তৈরি করার কালার এআই।" },
+            { name: "Uizard", category: "image", pricing: "Freemium", logo: "📱", url: "https://uizard.io", description: "হাতে আঁকা স্কেচ বা স্ক্রিনশট থেকে সরাসরি মোবাইল অ্যাপ ও ওয়েবসাইটের UI/UX ডিজাইন তৈরির এআই।" },
+            { name: "Hotpot.ai", category: "image", pricing: "Freemium", logo: "🍯", url: "https://hotpot.ai", description: "পুরোনো সাদা-কালো ছবিকে রঙিন করা এবং ড্যামেজ ছবি মেরামত করার সহজ এআই কিট।" },
+            { name: "DeepAI", category: "image", pricing: "Free", logo: "🤖", url: "https://deepai.org", description: "সহজ ও ফাস্ট ডেভেলপার API সহ ক্লাসিক টেক্সট-টু-ইমেজ জেনারেশন টুল।" },
+
+            // --- CODING (20 Tools) ---
+            { name: "GitHub Copilot", category: "code", pricing: "Paid", logo: "💻", url: "https://github.com", description: "গিটহাব ও ওপেনএআই-এর যৌথ এআই যা কোড করার সময় পরবর্তী লাইন স্বয়ংক্রিয়ভাবে প্রেডিক্ট করে।" },
+            { name: "Cursor AI", category: "code", pricing: "Freemium", logo: "🚀", url: "https://cursor.sh", description: "বর্তমান বিশ্বের ১ নম্বর এআই কোড এডিটর (IDE), যা পুরো প্রজেক্ট এক নিমিষে কোড ও ফিক্স করতে পারে।" },
+            { name: "Replit Agent", category: "code", pricing: "Paid", logo: "🌀", url: "https://replit.com", description: "শুধু মুখে বললেই স্ক্র্যাচ থেকে সম্পূর্ণ ওয়েব অ্যাপ ও ডাটাবেজ একাই তৈরি করে লাইভ করে দেয়।" },
+            { name: "Tabnine", category: "code", pricing: "Freemium", logo: "⌨️", url: "https://tabnine.com", description: "ডেভেলপারদের জন্য প্রাইভেসি-ফোকাসড চমৎকার অটো-কোড কমপ্লিশন এআই প্লাগইন।" },
+            { name: "v0 by Vercel", category: "code", pricing: "Freemium", logo: "⚡", url: "https://v0.dev", description: "আপনার বর্ণনামতো ফ্রন্টএন্ড UI (Tailwind, React) এর চমৎকার রেডিমেড কোড জেনারেট করে দেয়।" },
+            { name: "Codeium", category: "code", pricing: "Free", logo: "💎", url: "https://codeium.com", description: "ব্যক্তিগত ব্যবহারের জন্য সম্পূর্ণ ফ্রি এবং সুপার ফাস্ট একটি এআই কোড অ্যাসিস্ট্যান্ট টুল।" },
+            { name: "Blackbox AI", category: "code", pricing: "Freemium", logo: "📦", url: "https://blackbox.ai", description: "ভিডিও বা ছবি থেকে কোড এক্সট্র্যাক্ট করা এবং দ্রুত কোডিং প্রশ্নের উত্তর খোঁজার এআই।" },
+            { name: "Amazon Q", category: "code", pricing: "Freemium", logo: "☁️", url: "https://aws.amazon.com/q", description: "আমাজন এডাব্লিউএস (AWS) ইকোসিস্টেম এবং কোডিং ডেভেলপমেন্টের জন্য তৈরি বিশেষ এআই।" },
+            { name: "Sourcegraph Cody", category: "code", pricing: "Freemium", logo: "🐕", url: "https://sourcegraph.com/cody", description: "বিশাল কোডবেস বা বড় গিটহাব রিপোজিটরির ভেতরের কোড বুঝতে এবং বাগ খুঁজতে সাহায্যকারী এআই।" },
+            { name: "Phind", category: "code", pricing: "Freemium", logo: "🌐", url: "https://phind.com", description: "ডেভেলপারদের জন্য বিশেষভাবে তৈরি সার্চ ইঞ্জিন যা সরাসরি সঠিক কোড ও সমাধান প্রদান করে।" },
+            { name: "Warp Drive", category: "code", pricing: "Freemium", logo: "🪟", url: "https://warp.dev", description: "এআই ক্ষমতা সম্পন্ন মডার্ন টার্মিনাল, যা কমান্ড ভুলে গেলেও মুখে বললে লিখে দেয়।" },
+            { name: "Mutable.ai", category: "code", pricing: "Paid", logo: "🧱", url: "https://mutable.ai", description: "ম্যানুয়াল খাটুনি ছাড়াই এআই দিয়ে কোড রিফ্যাক্টরিং এবং ডকুমেন্টেশন অটোমেট করার টুল।" },
+            { name: "MutableAI", category: "code", pricing: "Freemium", logo: "🔧", url: "https://mutable.ai", description: "এআই প্রোডাক্টিভিটি ড্যাশবোর্ড যা কোডের মান উন্নত করতে অটো-টেস্ট জেনারেট করে।" },
+            { name: "SQLAI.ai", category: "code", pricing: "Freemium", logo: "🗄️", url: "https://sqlai.ai", description: "বাংলা বা সাধারণ ইংরেজিতে বললে ডাটাবেজের জটিল SQL কোয়েরি তৈরি করে দেওয়ার এআই।" },
+            { name: "Mintlify", category: "code", pricing: "Freemium", logo: "🍃", url: "https://mintlify.com", description: "যেকোনো সফটওয়্যার বা কোডের প্রফেশনাল ও সুন্দর ডকুমেন্টেশন পেজ স্বয়ংক্রিয়ভাবে বানানোর টুল।" },
+            { name: "CodePal", category: "code", pricing: "Freemium", logo: "🎨", url: "https://codepal.ai", description: "এক প্রোগ্রামিং ল্যাঙ্গুয়েজ থেকে অন্য ল্যাঙ্গুয়েজে কোড কনভার্ট বা অনুবাদ করার অল-ইন-ওয়ান টুল।" },
+            { name: "Bito AI", category: "code", pricing: "Freemium", logo: "🤖", url: "https://bito.ai", description: "ভিএস কোড (VS Code) এডিটরের ভেতরে কোড রিভিউ এবং সিকিউরিটি চেক করার চমৎকার এক্সটেনশন।" },
+            { name: "Adalo AI", category: "code", pricing: "Freemium", logo: "📱", url: "https://adalo.com", description: "কোনো কোডিং না জেনেও এআই-এর সাহায্যে ড্র্যাগ অ্যান্ড ড্রপ করে মোবাইল অ্যাপ বানানোর নো-কোড প্ল্যাটফর্ম।" },
+            { name: "Bubble AI", category: "code", pricing: "Freemium", logo: "🫧", url: "https://bubble.io", description: "জটিল ওয়েব অ্যাপ্লিকেশন এবং সফটওয়্যার লজিক কোড ছাড়া তৈরি করার প্রিমিয়াম নো-কোড এআই।" },
+            { name: "FlutterFlow", category: "code", pricing: "Freemium", logo: "🦋", url: "https://flutterflow.io", description: "অসাধারণ মোবাইল ও ওয়েব অ্যাপের ভিজ্যুয়াল ডিজাইন থেকে সরাসরি ফ্লাটার কোড তৈরির টুল।" },
+
+            // --- AUDIO & MUSIC (20 Tools) ---
+            { name: "ElevenLabs", category: "audio", pricing: "Freemium", logo: "🗣️", url: "https://elevenlabs.io", description: "বিশ্বের এক নম্বর টেক্সট-টু-স্পিচ এআই। হুবহু মানুষের মতো যেকোনো ভয়েস ক্লোন করা যায়।" },
+            { name: "Suno AI", category: "audio", pricing: "Freemium", logo: "🎵", url: "https://suno.com", description: "লিরিক্স বা গানের থিম লিখে দিলে চমৎকার মিউজিক, কণ্ঠ ও সুরসহ আস্ত গান বানিয়ে দেয়।" },
+            { name: "Udio", category: "audio", pricing: "Freemium", logo: "🎧", url: "https://udio.com", description: "স্টুডিও কোয়ালিটির মিউজিক, গান এবং ব্যাকগ্রাউন্ড স্কোর তৈরি করার টপ-নচ এআই মিউজিক জেনারেটর।" },
+            { name: "LalonMelody AI", category: "audio", pricing: "Free", logo: "🪕", url: "https://example.com/lalon", description: "বাংলা লিরিক্স ইনপুট দিলে একতারা-দোতারার আবহে লোকজ ও লালন গীতির সুর তৈরির বিশেষ এআই।" },
+            { name: "Adobe Podcast", category: "audio", pricing: "Free", logo: "🎙️", url: "https://podcast.adobe.com", description: "ঘরের ভেতর রেকর্ড করা যেকোনো বাজে বা নয়েজযুক্ত অডিওকে প্রফেশনাল স্টুডিও সাউন্ডে রূপান্তর করে।" },
+            { name: "Murf.ai", category: "audio", pricing: "Freemium", logo: "🎤", url: "https://murf.ai", description: "ভিডিওর ভয়েসওভার, ই-লার্নিং এবং বিজ্ঞাপনের জন্য নিখুঁত ও ন্যাচারাল ভয়েস মেকার এআই।" },
+            { name: "Voicemod", category: "audio", pricing: "Freemium", logo: "🎛️", url: "https://voicemod.net", description: "গেমিং বা লাইভ স্ট্রিমিংয়ের সময় রিয়েল-টাইমে নিজের গলার আওয়াজ পরিবর্তন করার জনপ্রিয় ভয়েস চেঞ্জার।" },
+            { name: "LALAL.AI", category: "audio", pricing: "Freemium", logo: "✂️", url: "https://lalal.ai", description: "যেকোনো গান থেকে মিউজিক (ভয়েস) এবং বাদ্যযন্ত্র (ইন্সট্রুমেন্ট) সম্পূর্ণ আলাদা করার নিখুঁত টুল।" },
+            { name: "Descript", category: "audio", pricing: "Freemium", logo: "📝", url: "https://descript.com", description: "অডিও বা ভিডিওর স্ক্রিপ্ট টেক্সট এডিট করেই মূল অডিও কাটছাঁট এবং ভয়েস এডিট করার জাদুকরী টুল।" },
+            { name: "Soundraw", category: "audio", pricing: "Freemium", logo: "🎹", url: "https://soundraw.io", description: "ইউটিউব ভিডিও বা গেমের জন্য কপিরাইট-মুক্ত ব্যাকগ্রাউন্ড মিউজিক আনলিমিটেড তৈরি করার মেকার।" },
+            { name: "Mubert", category: "audio", pricing: "Freemium", logo: "📱", url: "https://mubert.com", description: "ভিডিও ক্রিয়েটর ও স্ট্রিমারদের জন্য এআই জেনারেটেড রিয়েল-টাইম ইলেকট্রনিক ও অ্যাম্বিয়েন্ট মিউজিক।" },
+            { name: "Speechify", category: "audio", pricing: "Freemium", logo: "📚", url: "https://speechify.com", description: "যেকোনো পিডিএফ বই বা বড় আর্টিকেলকে সেলিব্রেটিদের ভয়েসে রূপান্তর করে শোনার চমৎকার অ্যাপ।" },
+            { name: "Boomy", category: "audio", pricing: "Free", logo: "🤖", url: "https://boomy.com", description: "কোনো বাদ্যযন্ত্রের জ্ঞান ছাড়াই কয়েক সেকেন্ডে এআই গান বানিয়ে স্পটিফাই ও অ্যাপল মিуজিকে আপলোডের সুযোগ।" },
+            { name: "Voice.ai", category: "audio", pricing: "Free", logo: "👥", url: "https://voice.ai", description: "হাজার হাজার ফ্রি কমিউনিটি ভয়েস ব্যবহার করে নিজের গলার আওয়াজ অন্য যেকোনো সেলিব্রেটির মতো করার অ্যাপ।" },
+            { name: "Beatoven.ai", category: "audio", pricing: "Freemium", logo: "🥁", url: "https://beatoven.ai", description: "ভিডিওর মুড (যেমন- হ্যাপি, স্যাড, হরর) অনুযায়ী কাস্টম ব্যাকগ্রাউন্ড ট্র্যাক তৈরির ভারতীয় এআই।" },
+            { name: "Splice AI", category: "audio", pricing: "Paid", logo: "🎼", url: "https://splice.com", description: "মিউজিক প্রডিউসারদের জন্য পারফেক্ট লুপ, ড্রাম বিট এবং স্যাম্পল খুঁজে বের করার ইন্টেলিজেন্ট লাইব্রেরি।" },
+            { name: "Krisp", category: "audio", pricing: "Freemium", logo: "🤫", url: "https://krisp.ai", description: "অনлайн জুমিং বা গুগল মিট মিটিংয়ের সময় চারপাশের সমস্ত নয়েজ ব্লক করার টুল।" },
+            { name: "AIVA", category: "audio", pricing: "Freemium", logo: "🎻", url: "https://aiva.ai", description: "সিনেমার ব্যাকগ্রাউন্ড স্কোর এবং ক্লাসিক্যাল সিম্ফনি মিউজিক কম্পোজ করার জন্য বিখ্যাত প্রফেশনাল এআই।" },
+            { name: "Play.ht", category: "audio", pricing: "Freemium", logo: "📢", url: "https://play.ht", description: "ব্লগ পোস্টকে এক ক্লিকে অডিও ফাইলে রূপান্তর করার টেক্সট-টু-স্পিচ প্ল্যাটফর্ম।" },
+            { name: "AudioCraft", category: "audio", pricing: "Free", logo: "🧬", url: "https://github.com", description: "মেটা (Meta) কোম্পানির ওপেন-সোর্স মিউজিক ও সাউন্ড ইফেক্ট জেনারেশন এআই কোড।" },
+
+            // --- VIDEO & ANIMATION (20 Tools) ---
+            { name: "Sora", category: "video", pricing: "Paid", logo: "🎬", url: "https://openai.com/sora", description: "ওপেনএআই-এর তৈরি সিনেমাটিক মানের হাইপার-রিয়েলিস্টিক টেক্সট-টু-ভিডিও জেনারেশন কিং।" },
+            { name: "Runway Gen-3", category: "video", pricing: "Freemium", logo: "🎥", url: "https://runwayml.com", description: "চলচ্চিত্র নির্মাণ এবং হলিউড লেভেলের স্পেশাল ইফেক্ট ভিডিও তৈরি করার সেরা এআই প্ল্যাটফর্ম।" },
+            { name: "Pika Labs", category: "video", pricing: "Freemium", logo: "🦊", url: "https://pika.art", description: "যেকোনো স্থির ছবিকে চমৎকার থ্রিডি অ্যানিমেশন বা ভিডিওতে রূপান্তর করার দুর্দান্ত এআই টুল।" },
+            { name: "HeyGen", category: "video", pricing: "Freemium", logo: "👤", url: "https://heygen.com", description: "বাস্তব মানুষের মতো দেখতে এআই অবতার দিয়ে মার্কেটিং ও প্রেজেন্টেশন ভিডিও বানানোর ওয়ার্ল্ড ক্লাস টুল।" },
+            { name: "Synthesia", category: "video", pricing: "Paid", logo: "🤖", url: "https://synthesia.io", description: "কোরপোরেট ট্রেনিং এবং টিউটোরিয়াল ভিডিওর জন্য স্ক্রিপ্ট লিখে দিলে কথা বলা এআই হিউম্যান ভিডিও বানায়।" },
+            { name: "CapCut AI", category: "video", pricing: "Freemium", logo: "✂️", url: "https://capcut.com", description: "ক্যাপকাটের ভেতরের অটো-ক্যাপশন, ভিডিও এনহ্যান্সার এবং এআই স্লাইডশো মেকার।" },
+            { name: "Opus Clip", category: "video", pricing: "Freemium", logo: "✂️", url: "https://opus.pro", description: "যেকোনো লম্বা ইউটিউব ভিডিওর লিংক দিলে তা থেকে সেরা অংশ কেটে স্বয়ংক্রিয় ১০টি শর্টস বা রিলস বানায়।" },
+            { name: "D-ID", category: "video", pricing: "Freemium", logo: "🗣️", url: "https://d-id.com", description: "যেকোনো একটি সিঙ্গেল ফেসিয়াল ফটো এবং অডিও আপলোড দিলে ছবিটিকে জীবন্ত কথা বলা ভিডিও বানায়।" },
+            { name: "InVideo AI", category: "video", pricing: "Freemium", logo: "🎞️", url: "https://invideo.io", description: "ভিডিওর আইডিয়া বা স্ক্রিপ্ট লিখে দিলে এটি একা একাই স্টক ভিডিও, ভয়েসওভার ও সাবটাইটেলসহ ফুল ভিডিও বানায়।" },
+            { name: "Fliki", category: "video", pricing: "Freemium", logo: "🎙️", url: "https://fliki.ai", description: "ব্লগ পোস্ট বা টুইট থেকে খুব সহজে সোশ্যাল মিডিয়া শর্টস এবং ভয়েসওভার ভিডিও তৈরির সহজ টুল।" },
+            { name: "Kaiber.ai", category: "video", pricing: "Paid", logo: "🦖", url: "https://kaiber.ai", description: "মিউজিক ভিডিওর জন্য সাইকেডেলিক, অ্যানিমে এবং সাই-ফাই স্টাইলের অসাধারণ আর্ট অ্যানিমেশন মেকার।" },
+            { name: "Luma Dream Machine", category: "video", pricing: "Freemium", logo: "🌀", url: "https://lumalabs.ai", description: "অত্যಂತ বাস্তবসম্মত ক্যামেরা মুভমেন্ট ও ফিজিক্স মেইনটেইন করে হাই-স্পিড ভিডিও তৈরির এআই।" },
+            { name: "Kling AI", category: "video", pricing: "Freemium", logo: "🐼", url: "https://klingai.com", description: "অত্যಂತ নিখুঁতভাবে টেক্সট ও ছবি থেকে দীর্ঘ সিনেমাটিক ৩ডি ভিডিও বানানোর ট্রেন্ডিং চীনা এআই।" },
+            { name: "Midjourney Video", category: "video", pricing: "Paid", logo: "🎨", url: "https://midjourney.com", description: "মিডজার্নির হাই-কোয়ালিটি স্টিল ইমেজগুলোকে মোশন ও ভিডিওতে রূপান্তর করার অফিশিয়াল ফিচার।" },
+            { name: "Veed.io", category: "video", pricing: "Freemium", logo: "🎬", url: "https://veed.io", description: "অনлайн ভিডিও এডিটর যাতে অটো-সাবটাইটেল, ভয়েস ক্লিন এবং এআই মিউজিক এড করার সুবিধা আছে।" },
+            { name: "DeepBrain AI", category: "video", pricing: "Paid", logo: "🧠", url: "https://deepbrain.io", description: "বাস্তব নিউজ অ্যাংকরের মতো দেখতে এআই অবতার দিয়ে ঝটপট খবরের বা প্রেজেন্টেশন ভিডিও তৈরির এআই।" },
+            { name: "Pictory", category: "video", pricing: "Freemium", logo: "🖼️", url: "https://pictory.ai", description: "বড় আর্টিকেল বা স্ক্রিপ্ট থেকে স্বয়ংক্রিয়ভাবে ভিডিও ক্লিপ ম্যাচ করিয়ে সোশ্যাল ভিডিও এডিটর।" },
+            { name: "Plask", category: "video", pricing: "Freemium", logo: "🕴️", url: "https://plask.ai", description: "সাধারণ ওয়েবক্যাম ভিডিও থেকে মানুষের বডি মুভমেন্ট ট্র্যাক করে ৩ডি ক্যারেক্টার অ্যানিমেশন (Mocap) বানানোর টুল।" },
+            { name: "Animate Anyone", category: "video", pricing: "Free", logo: "💃", url: "https://github.com", description: "যেকোনো স্থির ক্যারেক্টার বা মানুষের ছবিকে যেকোনো ড্যান্স স্টেপ বা মুভমেন্টে নিখুঁত নাচার ভিডিও তৈরির এআই।" },
+            { name: "Wonder Dynamics", category: "video", pricing: "Paid", logo: "🤖", url: "https://wonderdynamics.com", description: "লাইভ অ্যাকশন ভিডিওর আসল মানুষকে এক ক্লিকে সিজিআই (CGI) ৩ডি রোবট বা ক্যারেক্টার দিয়ে রিপ্লেস করার হলিউড গ্রেড এআই।" }
+        ];
+
+        function initDatabase() {
+            renderTools(aiDatabase);
+        }
+
+        function renderTools(dataToRender) {
+            const grid = document.getElementById('toolsGrid');
+            grid.innerHTML = '';
+
+            if(dataToRender.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 text-slate-500 font-light text-sm">
+                        😞 দুঃখিত, এই ফিল্টারে কোনো এআই টুল খুঁজে পাওয়া যায়নি!
+                    </div>`;
+                return;
+            }
+
+            dataToRender.forEach(tool => {
+                const card = `
+                    <div class="aix-card rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center border border-white/5 text-lg shadow-md shadow-indigo-500/5">
+                                    ${tool.logo}
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white tracking-tight text-base">${tool.name}</h3>
+                                    <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/10">${tool.category}</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-5 font-light line-clamp-3">${tool.description}</p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4 mt-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-md">${tool.pricing}</span>
+                            <a href="${tool.url}" target="_blank" class="text-xs font-semibold text-white hover:text-indigo-400 transition flex items-center gap-1">
+                                ভিজিট সাইট ↗
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function filterTools() {
+            const keyword = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            const filtered = aiDatabase.filter(tool => {
+                const matchCategory = (selectedCategory === 'All' || tool.category === selectedCategory);
+                
+                let matchPricing = true;
+                if (selectedPricing === 'Free') {
+                    matchPricing = (tool.pricing.toLowerCase() === 'free');
+                } else if (selectedPricing === 'Premium') {
+                    matchPricing = (tool.pricing.toLowerCase() === 'paid' || tool.pricing.toLowerCase() === 'freemium');
+                }
+
+                const normalizedName = tool.name.toLowerCase().replace(/\s+/g, '');
+                const normalizedKeyword = keyword.replace(/\s+/g, '');
+
+                const matchKeyword = tool.name.toLowerCase().includes(keyword) || 
+                                     normalizedName.includes(normalizedKeyword) ||
+                                     tool.description.toLowerCase().includes(keyword);
+                                     
+                return matchCategory && matchPricing && matchKeyword;
+            });
+
+            renderTools(filtered);
+        }
+
+        function filterCategory(catName) {
+            selectedCategory = catName;
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(`'${catName}'`)) {
+                    btn.className = "category-btn px-4 py-2 rounded-xl text-xs font-medium bg-indigo-600 text-white transition shadow-lg shadow-indigo-600/10";
+                } else {
+                    btn.className = "category-btn px-4 py-2 rounded-xl text-xs font-medium bg-slate-900 border border-white/5 text-slate-400 hover:text-white transition";
+                }
+            });
+            filterTools();
+        }
+
+        function filterPricing(priceType) {
+            selectedPricing = priceType;
+            const buttons = document.querySelectorAll('.pricing-btn');
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(`'${priceType}'`)) {
+                    if(priceType === 'All') btn.className = "pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-indigo-500/30 bg-indigo-600 text-white transition shadow-md";
+                    if(priceType === 'Free') btn.className = "pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-emerald-500/30 bg-emerald-600 text-white transition shadow-md";
+                    if(priceType === 'Premium') btn.className = "pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-amber-500/30 bg-amber-600 text-white transition shadow-md";
+                } else {
+                    if(btn.getAttribute('onclick').includes('All')) btn.className = "pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-indigo-500/10 bg-slate-900 text-slate-400 transition";
+                    if(btn.getAttribute('onclick').includes('Free')) btn.className = "pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-emerald-500/20 bg-slate-900 text-emerald-400 hover:bg-emerald-500/10 transition";
+                    if(btn.getAttribute('onclick').includes('Premium')) btn.className = "pricing-btn px-4 py-1.5 rounded-xl text-xs font-bold border border-amber-500/20 bg-slate-900 text-amber-400 hover:bg-amber-500/10 transition";
+                }
+            });
+            filterTools();
+        }
+
+        window.onload = () => { initDatabase(); };
+    </script>
+</body>
+</html>
